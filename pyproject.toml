@@ -1,18 +1,22 @@
 [project]
 name = "agentguard"
 version = "0.2.0"
-description = "Open-source security middleware for AI agents. Audit trail, rule engine, and KYA identity verification."
+description = "Open-source security middleware for AI agents. Audit trail, rule engine, prompt injection detection, data leakage prevention, and behavioral anomaly monitoring."
 readme = "README.md"
 license = {text = "Apache-2.0"}
-requires-python = ">=3.9"
+requires-python = ">=3.10"
 authors = [{name = "AgentGuard Contributors"}]
-keywords = ["ai", "agent", "security", "audit", "middleware", "langchain", "crewai", "openclaw", "safety", "monitoring"]
+keywords = [
+    "ai", "agent", "security", "audit", "middleware",
+    "langchain", "crewai", "safety", "monitoring",
+    "prompt-injection", "data-leakage", "guardrails",
+    "llm", "agent-safety", "ai-security",
+]
 classifiers = [
     "Development Status :: 3 - Alpha",
     "Intended Audience :: Developers",
     "License :: OSI Approved :: Apache Software License",
     "Programming Language :: Python :: 3",
-    "Programming Language :: Python :: 3.9",
     "Programming Language :: Python :: 3.10",
     "Programming Language :: Python :: 3.11",
     "Programming Language :: Python :: 3.12",
@@ -24,18 +28,17 @@ classifiers = [
 ]
 
 [project.urls]
-Homepage = "https://github.com/agentguard/agentguard"
-Documentation = "https://github.com/agentguard/agentguard#readme"
-Repository = "https://github.com/agentguard/agentguard"
-Issues = "https://github.com/agentguard/agentguard/issues"
-Changelog = "https://github.com/agentguard/agentguard/blob/main/CHANGELOG.md"
+Homepage = "https://github.com/q7766206/agentguard"
+Documentation = "https://github.com/q7766206/agentguard#readme"
+Repository = "https://github.com/q7766206/agentguard"
+Issues = "https://github.com/q7766206/agentguard/issues"
+Changelog = "https://github.com/q7766206/agentguard/blob/main/CHANGELOG.md"
 
 [project.optional-dependencies]
 langchain = ["langchain>=1.0"]
 crewai = ["crewai>=0.80"]
-kya = ["pyyaml>=6.0"]
-all = ["langchain>=1.0", "crewai>=0.80", "pyyaml>=6.0"]
-dev = ["pytest>=7.0", "pytest-cov>=4.0", "pytest-asyncio>=0.21", "ruff>=0.4", "mypy>=1.8"]
+all = ["langchain>=1.0", "crewai>=0.80"]
+dev = ["pytest>=7.0", "pytest-cov>=4.0", "ruff>=0.4", "mypy>=1.8"]
 
 [build-system]
 requires = ["hatchling"]
@@ -45,7 +48,7 @@ build-backend = "hatchling.build"
 packages = ["src/agentguard"]
 
 [tool.ruff]
-target-version = "py39"
+target-version = "py310"
 line-length = 100
 
 [tool.ruff.lint]
@@ -53,11 +56,10 @@ select = ["E", "F", "W", "I", "N", "UP", "B", "A", "SIM", "TCH"]
 ignore = ["E501"]
 
 [tool.mypy]
-python_version = "3.9"
+python_version = "3.10"
 warn_return_any = true
 warn_unused_configs = true
 disallow_untyped_defs = true
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
-asyncio_mode = "auto"
